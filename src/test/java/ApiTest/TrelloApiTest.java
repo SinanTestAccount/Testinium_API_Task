@@ -52,8 +52,8 @@ public class TrelloApiTest {
                 .when().post("1/lists");
         response.prettyPrint();
 
-
         System.out.println("New List Created");
+
         idList=response.path("id");
 
                 response = given().log().all().accept(ContentType.JSON)
@@ -89,6 +89,7 @@ public class TrelloApiTest {
                 .queryParam("key","80ab52f3e5a7bb18bc0bd1b5f9459be4")
                 .queryParam("token","053eefa4abee2df0e3f48d3ecb7eccdbbe69ae8e95389c3b548ef1483789e3e5")
                 .queryParam("id",idCart1)
+                .queryParam("name","UpdatedCardName")
                 .and().pathParam("id",idCart1)
                 .when().put("1/cards/{id}");
         response.prettyPrint();
